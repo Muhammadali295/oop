@@ -1,0 +1,10 @@
+tu=()
+x=int(input('enter max. no:'))
+for i in range(x):
+    value=input('enter no.:')
+    tu+=(value,)
+l=list(tu)
+l.sort()
+l.reverse()
+tu=tuple(l)
+print(tu)
