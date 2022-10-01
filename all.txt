@@ -1,0 +1,104 @@
+-------------------------------------lab 11--------------------------------------------------------//
+#Q1
+class Education(Exception):
+    pass
+def years():
+    years = int(input('enter years of education:'))
+    try:
+        if(years<=16):
+            raise Education('Its not enough')
+    except TypeError as obj:
+        print('input correct type',obj)
+    else:
+        print('you are eligible')
+years()
+
+#Q2
+def Smart_division():
+    try:
+        no1=int(input('enter numinator:'))
+        no2=int(input('enter denomenator:'))
+        a=no1/no2
+    except ZeroDivisionError as d:
+        print(d)
+    except TypeError as t:
+        print(t)
+    else:
+        print(a)
+Smart_division()
+
+#Q3
+def factorial():
+    try:
+        a=int(input('enter a no:'))
+        assert a>0, f'{a} is not greater than zero'
+        for i in range(1,a):
+            a=a*i
+        print('factorial of no is:',a)
+    except TypeError as t:
+        print(t)
+    except AssertionError as e:
+        print(e)
+factorial()
+
+-------------------------------------lab 12--------------------------------------------------------//
+#Q1
+class Vector:
+    def __init__(self):
+        self.x=(int(input('enter x-cocordinate:')))
+        self.y=(int(input('enter y-cocordinate:')))
+    def __str__(self):
+        return f'{self.x}i+{self.y}j'
+v=Vector()
+print(v)
+
+#Q2
+class Point:
+    def __init__(self):
+        self.x=(int(input('enter x-cocordinate:')))
+        self.y=(int(input('enter y-cocordinate:')))
+    def __str__(self):
+        return f'{self.x},{self.y}'
+v=Point()
+print(v)
+
+-------------------------------------lab 13--------------------------------------------------------//
+#Q1
+class Point:
+    def __init__(self,x,y):
+        self.x=x
+        self.y=y
+    def __add__(self, other):
+        return self.x+other.x,self.y+other.y
+p1=Point(4,5)
+p2=Point(10,56)
+print('point is:',p1+p2)
+
+#Q2
+class Point:
+    def __init__(self,x,y):
+        self.x=x
+        self.y=y
+    #def __add__(self, other):
+        #return self.x+other.x,self.y+other.y
+    def __lt__(self, other):
+        a=self.x<other.x
+        b=self.y<other.y
+        if a and b:
+            return ('p1 is less than p2')
+        else:
+            return ('p2 is less than p1')
+    def __gt__(self, other):
+        a=self.x>other.x
+        b=self.y>other.y
+        if a and b:
+            return ('p1 is greater than p2')
+        else:
+            return ('p2 is greater than p2')
+p1=Point(4,5)
+p2=Point(10,56)
+#print('point is:',p1+p2)
+if p1<p2:
+    print(p1 < p2)
+else:
+    print(p1>p2)
